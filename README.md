@@ -22,23 +22,23 @@ As a result, the system will significantly reduce the time required to prepare a
 # 1.Frontend design
 
 ## 1.1 Technology stack:
--Application type: Web application
--Web Framework: ReactJS v19.2
--NodeJS v20
--TypeScript v5.9.3
--Unit Testing: Jest v30.2.0
--Zod v4.3.6 to data validation
--Prettier 3.8.1
--Eslint v10.0.2
--Integration testing: Playwrite v1.58.2
--Cloud service: Azure cloud services
--Hosted by Azure App Service 
--Code repositories AzureDevOps
--Automated code task by Husky v9.1.7
--CI CD Azure Pipelines
--Environments: development, stage, qa and production
--Environments: deployment Azure DevOPs Environments
--Observability: Application Insights SDK
+- Application type: Web application
+- Web Framework: ReactJS v19.2
+- NodeJS v20
+- TypeScript v5.9.3
+- Unit Testing: Jest v30.2.0
+- Zod v4.3.6 to data validation
+- Prettier 3.8.1
+- Eslint v10.0.2
+- Integration testing: Playwrite v1.58.2
+- Cloud service: Azure cloud services
+- Hosted by Azure App Service 
+- Code repositories AzureDevOps
+- Automated code task by Husky v9.1.7
+- CI CD Azure Pipelines
+- Environments: development, stage, qa and production
+- Environments: deployment Azure DevOPs Environments
+- Observability: Application Insights SDK
 
 
 ##1.2 UX UI analysis
