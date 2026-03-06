@@ -165,7 +165,31 @@ User actions and system results
 
 ### Wireframes
 
-1. Select Document Folder
+1. Login Microsoft SSO
+
+Purpose
+
+Allow users to securely authenticate into the DUA Streamliner platform using Microsoft Single Sign-On (SSO), ensuring that only authorized organizational accounts can access the system.
+
+Description
+
+The screen presents the Microsoft authentication interface that allows users to sign in with their organizational credentials. The authentication process may include identity verification and multi-factor authentication. Once the authentication is successful, the system establishes a secure session and redirects the user to the main workspace of the application. If authentication fails, the system informs the user and allows them to retry the sign-in process.
+
+![Log in](/media/login.png)
+
+2. Home Dashboard
+
+Purpose
+
+Provide users with a central workspace where they can start a new DUA generation process or review the status and results of previous executions.
+
+Description
+
+The dashboard displays an overview of the user’s recent DUA generation activities and provides quick access to the main system actions. From this screen, users can initiate a new DUA generation run or access previously executed processes to review their status or retrieve generated results. The dashboard serves as the primary entry point for managing document processing workflows within the platform.
+
+![Home Page/Dashboard](/media/Dashboard.png)
+
+3. Select Document Folder
 Purpose
 
 Allow the user to indicate the location containing the source documents that will be analyzed for the DUA generation process.
@@ -176,7 +200,7 @@ The screen allows the user to specify the folder containing the import/export do
 
 ![Select Document Folder](/media/selectFolder.png)
 
-2. Select DUA Template
+4. Select DUA Template
 Purpose
 
 Allow the user to select the official DUA template that will be used as the base structure for the generated declaration.
@@ -187,7 +211,7 @@ The user confirms the official template version supported by the system.
 
 ![Select DUA Template](/media/selectDUATemplate.png)
 
-3. Processing Monitoring Screen
+5. Processing Monitoring Screen
 Purpose
 
 Allow the user to observe the progress of the automated document processing and detect warnings or errors.
@@ -198,7 +222,7 @@ The screen displays the execution progress and the stage of the processing pipel
 
 ![Processing Monitoring Screen](/media/Monitoring.png)
 
-4. Generated Result Screen
+6. Generated Result Screen
 Purpose
 
 Allow the user to review the generated DUA and retrieve the document for validation.
@@ -208,11 +232,6 @@ Description
 The screen presents the generated document along with confidence indicators for the extracted data.
 
 ![Outcome](/media/Outcome.png)
-
-
-uno del home dashboard
-un wireframe del Login Microsoft SSO
-un wireframe del flujo completo de generación
 
 
 ### UX test results
