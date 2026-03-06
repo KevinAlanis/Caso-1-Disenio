@@ -174,7 +174,7 @@ Description
 
 The screen allows the user to specify the folder containing the import/export documentation. The system validates that the folder exists and contains readable files.
 
-![Select Document Folder](/media/selectFolder.jpg)
+![Select Document Folder](/media/selectFolder.png)
 
 2. Select DUA Template
 Purpose
@@ -185,7 +185,7 @@ Description
 
 The user confirms the official template version supported by the system.
 
-![Select DUA Template](/media/selectDUATemplate.jpg)
+![Select DUA Template](/media/selectDUATemplate.png)
 
 3. Processing Monitoring Screen
 Purpose
@@ -196,7 +196,7 @@ Description
 
 The screen displays the execution progress and the stage of the processing pipeline.
 
-![Processing Monitoring Screen](/media/Monitoring.jpg)
+![Processing Monitoring Screen](/media/Monitoring.png)
 
 4. Generated Result Screen
 Purpose
@@ -207,7 +207,7 @@ Description
 
 The screen presents the generated document along with confidence indicators for the extracted data.
 
-![Outcome](/media/Outcome.jpg)
+![Outcome](/media/Outcome.png)
 
 
 uno del home dashboard
