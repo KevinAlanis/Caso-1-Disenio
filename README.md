@@ -43,20 +43,125 @@ As a result, the system will significantly reduce the time required to prepare a
 
 ## 1.2 UX UI analysis
 ### Core Busieness process
-Describir paso a paso lo que sucede en cada pantalla en terminos de acciones, no hablar de botones, ni listas ni ningún componente visual, solo acciones de usuario y el resultado de cada acción.
+The core process of the system is to allow an authenticated user to set up a DUA generation run, deliver necessary source documents, supervise the automated analysis and finally review and download the pre-populated result. The system does not replace final human validation, but rather automates extraction and prellening to reduce time and operational errors.
 
-### login
-1. El usuario ingresa el log in y password y el one time token.
-2. Al intentar loguearse si falla,m se le presenta un mensaje al user and pass invalido
-3. Si es succes ...
+The core business flow would be:
 
-###  Congifurar el generador
+1. The user accesses the system using secure authentication.
+2. The user starts a new DUA generation run.
+3. The user indicates the location of the source documents that will be processed.
+4. The user selects or confirms the official SAD template to be used as a basis.
+5. The system validates that there are sufficient inputs and that the process can be executed.
+6. The system analyzes documents, extracts relevant information and maps it to the SAD format.
+7. The user monitors the overall progress of processing and checks for any warnings or inconsistencies.
+8. The system generates the final prefile.
+9. The user looks up the result, checks the confidence level of the data and gets the generated document.
+10. The user can log out at the end.
 
-### Monitoreo del avance
+### Login
+Objective
 
-### Obtenición del resultado
+Allow only authorized users to access the system through secure authentication.
+
+User actions and system results
+
+1. The user enters their login credentials and single-use authentication code.
+2. The system validates that credentials match an active and authorized account.
+3. If validation fails, the system reports that the credentials or token are invalid and allows for a retry.
+4. If validation is successful, the system grants access to the platform and directs the user to the main workspace.
+5. If the user exceeds several consecutive failed attempts, the system may temporarily block access or require further validation.
+
+### Home / Initial Dashboard
+Objective
+
+Allow the user to initiate a new generation of DUA or continue with a previous execution.
+
+User actions and system results
+
+1. The user accesses the main system space after authenticating.
+2. The system presents the overall status of recent executions and available options according to user role.
+3. The user decides to start a new run or review an earlier run.
+4. If you start a new run, the system directs it to the generator configuration flow.
+5. If you select a prerun, the system displays its current state or final result.
+
+### Configure the generator
+Objective
+
+Allow the user to define the inputs needed to execute the automatic generation process of DUA.
+
+User actions and system results
+
+1. The user starts a new generation run.
+2. The user indicates the location of the set of documents that will be used as a source of information.
+3. The system verifies that the specified location is accessible and contains files compatible with the process.
+4. The user selects the official SAD template that will be used for the sample.
+5. The system validates that the selected template matches a version supported by the solution.
+6. The user confirms that the information provided is correct and requests to start processing.
+7. Before starting, the system validates that there are sufficient documents, that the template is valid and that no mandatory parameters are missing.
+8. If validation fails, the system informs you which condition prevents you from continuing.
+9. If the validation is successful, the system registers the new execution and starts automatic processing.
+
+Special cases you should consider
+
+- The folder does not exist.
+- The folder is empty.
+- Corrupt files or unsupported formats exist.
+- The selected template does not correspond to the current version.
+- The user tries to run the process without sufficient supporting documents.
+
+### Monitoring progress
+Objective
+
+Allow the user to know the status of processing and be able to identify whether the execution is progressing correctly or requires attention.
+
+User actions and system results
+
+1. Once the execution is started, the user views the progress of the processing.
+2. The system reports on the overall status of execution and the current stage of the process.
+3. The user can check if the documents have already been read, if data extraction has been completed and if mapping to DUA is in progress.
+4. If the system detects inconsistencies, ambiguities or insufficient information, it communicates them to the user as processing warnings.
+5. If a critical error occurs, the system reports that execution cannot continue and indicates the overall cause of the issue.
+6. If processing is successful, the system updates the completed state and enables access to the final result.
+
+### Outcome
+Objective
+
+Allow the user to view the generated DUA, understand the confidence level of the prellened and obtain the file for review and later use.
+
+User actions and system results
+
+1. When the processing is finished, the user accesses the execution result.
+2. The system presents the generated document along with the process traceability information.
+3. The user reviews the result to identify fields with high, medium, or low confidence.
+4. The system makes it possible to distinguish which parts of the document require more careful user validation.
+5. The user obtains the prefilled file for review, correction or later use within the customs flow.
+6. The system retains the execution-related result for future reference or audit.
+
+### History of executions or previous results
+Allow the user to view past runs and retrieve previous results or statuses.
+
+User actions and system results
+
+1. The user looks up previous runs.
+2. The system displays the executions associated with your account or work context.
+3. User selects a previous run to check its status or outcome.
+4. If the execution was successful, the system allows access to the generated document again.
+5. If the execution failed, the system reports the status and recorded cause of the failure.
+
+### Error handling / failed execution
 
 ### Log out
+Objective
+
+Allow the user to log out safely.
+
+User actions and system results
+
+1. The user requests to end their session.
+2. The system invalidates the active session and removes authenticated access to the system.
+3. The user is redirected out of the protected area of the application.
+4. If the user tries to access protected information again, the system requests authentication again.
+
 
 ### Wireframes
 Con los pasos anteriores le pido a una AI que me genere los screens y los pego aquí con un título, descripción y la imagen empotrada.
