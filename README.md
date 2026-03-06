@@ -164,13 +164,55 @@ User actions and system results
 
 
 ### Wireframes
-Con los pasos anteriores le pido a una AI que me genere los screens y los pego aquí con un título, descripción y la imagen empotrada.
-Login screen. The user can login int his account using the microsoft authentication screen ![Login](/media/login.jpg)
 
-  - Seleccionar el Folder
-  - Seleccionar la plantilla de DUA
-  - Cómo monitero el avance del proceso
-  - Cómo se ve el resultado final
+1. Select Document Folder
+Purpose
+
+Allow the user to indicate the location containing the source documents that will be analyzed for the DUA generation process.
+
+Description
+
+The screen allows the user to specify the folder containing the import/export documentation. The system validates that the folder exists and contains readable files.
+
+![Select Document Folder](/media/selectFolder.jpg)
+
+2. Select DUA Template
+Purpose
+
+Allow the user to select the official DUA template that will be used as the base structure for the generated declaration.
+
+Description
+
+The user confirms the official template version supported by the system.
+
+![Select DUA Template](/media/selectDUATemplate.jpg)
+
+3. Processing Monitoring Screen
+Purpose
+
+Allow the user to observe the progress of the automated document processing and detect warnings or errors.
+
+Description
+
+The screen displays the execution progress and the stage of the processing pipeline.
+
+![Processing Monitoring Screen](/media/Monitoring.jpg)
+
+4. Generated Result Screen
+Purpose
+
+Allow the user to review the generated DUA and retrieve the document for validation.
+
+Description
+
+The screen presents the generated document along with confidence indicators for the extracted data.
+
+![Outcome](/media/Outcome.jpg)
+
+
+uno del home dashboard
+un wireframe del Login Microsoft SSO
+un wireframe del flujo completo de generación
 
 
 ### UX test results
@@ -185,9 +227,6 @@ Login screen. The user can login int his account using the microsoft authenticat
 
 - heatmap
 ![DUA streamliner heatmap](/media/heatmap.jpg)
-
-
-
 
 
 ##1.3 Component design strategy: 
