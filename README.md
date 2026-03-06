@@ -41,8 +41,49 @@ As a result, the system will significantly reduce the time required to prepare a
 - Observability: Application Insights SDK
 
 
-##1.2 UX UI analysis
-Includes desirable usability attributes of the application, a preliminary UX design in wireframe mode, and evidence from UX tests with real users validating preliminary design design
+## 1.2 UX UI analysis
+### Core Busieness process
+Describir paso a paso lo que sucede en cada pantalla en terminos de acciones, no hablar de botones, ni listas ni ningún componente visual, solo acciones de usuario y el resultado de cada acción.
+
+### login
+1. El usuario ingresa el log in y password y el one time token.
+2. Al intentar loguearse si falla,m se le presenta un mensaje al user and pass invalido
+3. Si es succes ...
+
+###  Congifurar el generador
+
+### Monitoreo del avance
+
+### Obtenición del resultado
+
+### Log out
+
+### Wireframes
+Con los pasos anteriores le pido a una AI que me genere los screens y los pego aquí con un título, descripción y la imagen empotrada.
+Login screen. The user can login int his account using the microsoft authentication screen ![Login](/media/login.jpg)
+
+  - Seleccionar el Folder
+  - Seleccionar la plantilla de DUA
+  - Cómo monitero el avance del proceso
+  - Cómo se ve el resultado final
+
+
+### UX test results
+- escoger alguna app para ejecutar UX test usando esos wireframes (Maze?)
+- el test se le aplica en forma remota compartiendo un URL, a 3 estudiantes o amigos.
+- eso va a generar un reporte de resultados
+- crear un markdown table con los resultados
+- evidencias
+![Pablo mi amigod](/media/testdejuan.jpg)
+![mario mi amigod](/media/testdemario.jpg)
+![maria mi amigod](/media/testdemaria.jpg)
+
+- heatmap
+![DUA streamliner heatmap](/media/heatmap.jpg)
+
+
+
+
 
 ##1.3 Component design strategy: 
 Defines the technique and principles of frontend component design, how component reuse is achieved, how styles are centralized, branding, internationalization and responsiveness.
