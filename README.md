@@ -255,10 +255,12 @@ The screen presents the generated document along with confidence indicators for 
 ![Flow 13 to 18](/media/Flow3.png)
 
 - Heatmaps Path 1
-![DUA streamliner heatmap](/media/heatmap.jpg)
-![DUA streamliner heatmap](/media/heatmap.jpg)
-![DUA streamliner heatmap](/media/heatmap.jpg)
-![DUA streamliner heatmap](/media/heatmap.jpg)
+![Heatmap1](/media/P1.1.jpg)
+![Heatmap2](/media/P1.2.jpg)
+![Heatmap3](/media/P1.3.jpg)
+![Heatmap4](/media/P1.4.jpg)
+![Heatmap5](/media/P1.5.jpg)
+![Heatmap6](/media/P1.6.jpg)
 
 - Heatmaps Path 2
 ![DUA streamliner heatmap](/media/heatmap.jpg)
@@ -273,12 +275,6 @@ The screen presents the generated document along with confidence indicators for 
 ![DUA streamliner heatmap](/media/heatmap.jpg)
 
 - Heatmaps Path 4
-![DUA streamliner heatmap](/media/heatmap.jpg)
-![DUA streamliner heatmap](/media/heatmap.jpg)
-![DUA streamliner heatmap](/media/heatmap.jpg)
-![DUA streamliner heatmap](/media/heatmap.jpg)
-
-- Heatmaps Path 5
 ![DUA streamliner heatmap](/media/heatmap.jpg)
 ![DUA streamliner heatmap](/media/heatmap.jpg)
 ![DUA streamliner heatmap](/media/heatmap.jpg)
