@@ -238,8 +238,11 @@ The screen presents the generated document along with confidence indicators for 
 - UX Test with Maze + Figma
 - eso va a generar un reporte de resultados
 - crear un markdown table con los resultados
+
 |User |Success |Misclick rate |Avg. duration|
+
 |-----|--------|--------------|-------------|
+
 |1.   |100     |48.6          |160          |
 
 - evidencias
