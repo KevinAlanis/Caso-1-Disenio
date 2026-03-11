@@ -239,11 +239,11 @@ The screen presents the generated document along with confidence indicators for 
 - eso va a generar un reporte de resultados
 - crear un markdown table con los resultados
 
-|User |Success |Misclick rate |Avg. duration|
+| User | Success | Misclick rate | Avg. duration |
 
-|-----|--------|--------------|-------------|
+| ----- | -------- | -------------- | ------------- |
 
-|1.   |100     |48.6          |160          |
+| 1.   | 100     | 48.6          | 160          |
 
 - evidencias
 ![Pablo mi amigod](/media/testdejuan.jpg)
