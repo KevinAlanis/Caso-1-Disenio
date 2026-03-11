@@ -235,10 +235,13 @@ The screen presents the generated document along with confidence indicators for 
 
 
 ### UX test results
-- escoger alguna app para ejecutar UX test usando esos wireframes (Maze?)
-- el test se le aplica en forma remota compartiendo un URL, a 3 estudiantes o amigos.
+- UX Test with Maze + Figma
 - eso va a generar un reporte de resultados
 - crear un markdown table con los resultados
+|User |Success |Misclick rate |Avg. duration|
+|-----|--------|--------------|-------------|
+|1.   |100     |48.6          |160          |
+
 - evidencias
 ![Pablo mi amigod](/media/testdejuan.jpg)
 ![mario mi amigod](/media/testdemario.jpg)
