@@ -1,6 +1,12 @@
 # DUA streamliner
 CURSO: IC6821 Diseño de software
 
+
+| User | Success | Misclick rate | Avg. duration |
+| -------- | -------- | -------- | -------- |
+| 1. | 100 | 48.6 | 160 |
+
+
 GRUPO: 02
 
 Caso: #1 DUA Streamliner
@@ -240,10 +246,8 @@ The screen presents the generated document along with confidence indicators for 
 - crear un markdown table con los resultados
 
 | User | Success | Misclick rate | Avg. duration |
-
-| ----- | -------- | -------------- | ------------- |
-
-| 1.   | 100     | 48.6          | 160          |
+| -------- | -------- | -------- | -------- |
+| 1. | 100 | 48.6 | 160 |
 
 - evidencias
 ![Pablo mi amigod](/media/testdejuan.jpg)
