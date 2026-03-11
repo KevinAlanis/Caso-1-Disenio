@@ -248,8 +248,20 @@ The screen presents the generated document along with confidence indicators for 
 ![DUA streamliner heatmap](/media/heatmap.jpg)
 
 
-##1.3 Component design strategy: 
-Defines the technique and principles of frontend component design, how component reuse is achieved, how styles are centralized, branding, internationalization and responsiveness.
+## 1.3 Component design strategy: 
+### Strategy Implementation
+
+- Name of the strategy
+Centralized React Component Design System using MUI + centralized i18n layer
+
+- Reutilization by:
+Reusable React components organized within a shared UI component library. Common interface elements such as dialogs, forms, input fields, tables, and layout structures will be implemented once and reused throughout the system. Styling and visual rules will be managed through a centralized MUI theme configuration to ensure consistency across all application screens.
+
+- Internationalization by:
+A centralized internationalization layer integrated with the frontend using a dedicated localization framework such as react-i18next. Text content, labels, validation messages, and locale-sensitive values (dates, numbers, currencies) will be managed in external language resource files, allowing the interface language to be controlled independently from the application logic.
+
+- Responsiveness by:
+Responsive layout design implemented through MUI’s breakpoint system and flexible layout utilities. The design system will define consistent layout patterns that adapt to multiple screen sizes including desktops, tablets, and mobile devices. Responsive behavior will be handled at the component and theme level to ensure uniform behavior across the application.
 
 ##1.4 Security
 Technologies, techniques and classes with their respective location in the project structure responsible for authentication and authorization of permissions and sessions. 
