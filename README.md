@@ -1,12 +1,6 @@
 # DUA streamliner
 CURSO: IC6821 Diseño de software
 
-
-| User | Success | Misclick rate | Avg. duration |
-| -------- | -------- | -------- | -------- |
-| 1. | 100 | 48.6 | 160 |
-
-
 GRUPO: 02
 
 Caso: #1 DUA Streamliner
@@ -242,21 +236,53 @@ The screen presents the generated document along with confidence indicators for 
 
 ### UX test results
 - UX Test with Maze + Figma
-- eso va a generar un reporte de resultados
-- crear un markdown table con los resultados
+- Average % of clicks outside maze hotspots 36.4%
+- Average duration 165.9s
+- Users 5 responses
 
-| User | Success | Misclick rate | Avg. duration |
+- Markdown of results
+
+| Path | Users | Misclick rate | Avg. duration |
 | -------- | -------- | -------- | -------- |
-| 1. | 100 | 48.6 | 160 |
+| 1 | 2 | 58.3% | 70.3s |
+| 2 | 1 | 41.7% | 167.4s |
+| 3 | 1 | 0.0% | 238.2s |
+| 4 | 1 | 0.0% | 283.1s |
 
-- evidencias
-![Pablo mi amigod](/media/testdejuan.jpg)
-![mario mi amigod](/media/testdemario.jpg)
-![maria mi amigod](/media/testdemaria.jpg)
+- Evidence of navigational flow.
+![Flow 1 to 6](/media/Flow1.png)
+![Flow 7 to 12](/media/Flow2.png)
+![Flow 13 to 18](/media/Flow3.png)
 
-- heatmap
+- Heatmaps Path 1
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
 ![DUA streamliner heatmap](/media/heatmap.jpg)
 
+- Heatmaps Path 2
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+
+- Heatmaps Path 3
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+
+- Heatmaps Path 4
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+
+- Heatmaps Path 5
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
+![DUA streamliner heatmap](/media/heatmap.jpg)
 
 ## 1.3 Component design strategy: 
 ### Strategy Implementation
