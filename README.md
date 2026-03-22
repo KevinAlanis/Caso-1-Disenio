@@ -839,6 +839,7 @@ Responsibility: Builds result models with confidence metadata and traceability i
 
 Pattern: Factory Method
 
+```bash
 src/
 ├── security/
 │   ├── auth/
@@ -896,6 +897,7 @@ src/
     │   └── UIRefreshManager.ts
     └── state/
         └── ViewStateStore.ts
+```
         
 ## 1.7 a folder in /src 
 which contains the scaffold of the project, which is generated from the entire specification of points 1.1 to 1.6. 
