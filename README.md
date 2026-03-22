@@ -491,6 +491,7 @@ This should be your official service for:
 - third-party tokens
  
 ##1.5 Layered design
+```bash
 src/
 │
 ├── app/                         # Configuración global de la app
@@ -551,7 +552,7 @@ src/
 ├── assets/                     # Imágenes, íconos
 │
 └── index.tsx                   # Entry point
-
+```
 
 ## 1.6 Design patterns
 1. Security
