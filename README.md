@@ -896,7 +896,8 @@ src/
     │   └── UIRefreshManager.ts
     └── state/
         └── ViewStateStore.ts
-##1.7 a folder in /src 
+        
+## 1.7 a folder in /src 
 which contains the scaffold of the project, which is generated from the entire specification of points 1.1 to 1.6. 
 
 #Backend desing
