@@ -489,20 +489,415 @@ This should be your official service for:
 - keys
 - certificates
 - third-party tokens
-
-
-
+ 
 ##1.5 Layered design
-design and explanation of the application’s various layers in the frontend. 
+src/
+│
+├── app/                         # Configuración global de la app
+│   ├── App.tsx
+│   ├── routes.tsx
+│   ├── providers/              # Providers globales (Auth, Theme, i18n)
+│   ├── store/                  # Estado global (Redux/Zustand si aplica)
+│
+├── features/                   # Módulos por dominio (feature-based)
+│   ├── auth/
+│   ├── dua-generation/
+│   ├── monitoring/
+│   ├── results/
+│   ├── history/
+│
+├── pages/                      # Pantallas (composición de features)
+│   ├── LoginPage.tsx
+│   ├── DashboardPage.tsx
+│   ├── GeneratorPage.tsx
+│   ├── MonitoringPage.tsx
+│   ├── ResultPage.tsx
+│
+├── components/                 # Componentes reutilizables (UI genérico)
+│   ├── common/                 # Botones, inputs, modals
+│   ├── layout/                 # Header, sidebar, containers
+│   ├── feedback/               # loaders, alerts, notifications
+│
+├── services/                   # Comunicación externa (API calls)
+│   ├── apiClient.ts
+│   ├── duaService.ts
+│   ├── authService.ts
+│
+├── security/                   # Autenticación y autorización
+│   ├── auth/
+│   ├── guards/
+│   ├── permissions/
+│
+├── hooks/                      # Custom hooks reutilizables
+│   ├── useAuth.ts
+│   ├── usePermissions.ts
+│   ├── useApi.ts
+│
+├── models/                     # Tipos y modelos (DTOs)
+│   ├── DUA.ts
+│   ├── User.ts
+│
+├── utils/                      # Funciones utilitarias
+│   ├── formatters/
+│   ├── validators/
+│
+├── i18n/                       # Internacionalización
+│   ├── en.json
+│   ├── es.json
+│
+├── styles/                     # Tema y estilos globales (MUI)
+│   ├── theme.ts
+│
+├── assets/                     # Imágenes, íconos
+│
+└── index.tsx                   # Entry point
 
-##1.6 Design patterns
-Design of classes with their respective location in the project structure, where it is necessary to apply object-oriented design patterns, such as: security, UI refresh, receiving notifications, state storage, api calls, asynchronous operations, invalidation of sessions, scheduling by events, creation of objects. 
 
+## 1.6 Design patterns
+1. Security
+Purpose
+Handle authentication, authorization, session lifecycle, and role/permission resolution.
+Project location
+src/security/
+src/security/auth/
+src/security/session/
+src/security/authorization/
+Classes
+AuthService
+
+Location: src/security/auth/AuthService.ts
+Responsibility: Handles sign-in, sign-out, retrieval of authenticated user information, and authentication state resolution from Azure App Service Authentication / Microsoft Entra ID.
+
+Pattern: Facade
+
+Provides a simplified interface to the authentication mechanism.
+Hides token/session details from the rest of the application.
+SessionManager
+
+Location: src/security/session/SessionManager.ts
+Responsibility: Manages client-side session lifecycle, session expiration detection, logout propagation, and invalid session handling.
+
+Pattern: Singleton
+
+Only one shared session manager should exist in the frontend.
+Prevents duplicated session logic across pages.
+AuthorizationService
+
+Location: src/security/authorization/AuthorizationService.ts
+Responsibility: Evaluates whether the current user has access to specific actions, pages, or features based on roles and permissions.
+
+Pattern: Strategy
+
+Different authorization strategies can be applied, such as role-based checks, permission-based checks, or policy-based checks.
+PermissionPolicy
+
+Location: src/security/authorization/policies/PermissionPolicy.ts
+Responsibility: Defines rules to determine whether a specific permission is granted.
+
+Pattern: Strategy
+
+Allows different access rules to be plugged into the authorization flow.
+RoleMapper
+
+Location: src/security/authorization/RoleMapper.ts
+Responsibility: Translates identity claims into internal application roles.
+
+Pattern: Adapter
+
+Adapts external identity provider claims into the app’s internal authorization model.
+
+2. UI Refresh
+Purpose
+Trigger controlled UI updates when relevant business state changes.
+Project location
+src/ui/state/
+src/ui/refresh/
+
+Classes
+UIRefreshManager
+
+Location: src/ui/refresh/UIRefreshManager.ts
+Responsibility: Coordinates explicit UI refresh requests after relevant actions such as completed processing, status changes, or session expiration.
+
+Pattern: Observer
+UI sections subscribe to relevant state changes.
+Useful when multiple parts of the interface must react to one event.
+ViewStateStore
+Location: src/ui/state/ViewStateStore.ts
+Responsibility: Holds shared transient UI state such as current execution status, loading flags, or visible warnings.
+Pattern: Singleton
+Centralized access point to common frontend view state.
+
+3. Receiving Notifications
+Purpose
+Handle alerts, warnings, informational messages, and process completion notifications.
+Project location
+src/notifications/
+
+Classes
+NotificationService
+Location: src/notifications/NotificationService.ts
+Responsibility: Sends notifications to the UI when important system or user events occur.
+Pattern: Observer
+UI components subscribe to notification events.
+Decouples message producers from message consumers.
+NotificationFactory
+Location: src/notifications/NotificationFactory.ts
+Responsibility: Creates notification objects according to type, severity, and context.
+Pattern: Factory Method
+Standardizes creation of success, warning, error, and info notifications.
+NotificationMessage
+Location: src/notifications/models/NotificationMessage.ts
+Responsibility: Represents the structure of a notification shown to the user.
+Pattern: Domain model / value object
+
+4. State Storage
+Purpose
+Provide centralized frontend state handling for user session, current execution, selected template, results, and monitoring data.
+Project location
+src/state/
+src/state/stores/
+Classes
+AppStateStore
+
+Location: src/state/stores/AppStateStore.ts
+Responsibility: Maintains global application state shared across features.
+Pattern: Singleton
+One shared state container for app-wide data.
+ExecutionStore
+Location: src/state/stores/ExecutionStore.ts
+Responsibility: Maintains state of the active DUA generation workflow.
+Pattern: State
+The execution can move between states such as draft, validating, processing, completed, failed.
+UserSessionStore
+Location: src/state/stores/UserSessionStore.ts
+Responsibility: Stores authenticated user context and permission snapshot.
+Pattern: Singleton
+
+5. API Calls
+Purpose
+Centralize communication with backend endpoints and isolate HTTP concerns.
+Project location
+src/services/api/
+
+Classes
+ApiClient
+
+Location: src/services/api/ApiClient.ts
+Responsibility: Performs HTTP requests, standardizes headers, handles errors, and abstracts the transport mechanism.
+
+Pattern: Facade
+
+Exposes a simple interface for GET/POST/PUT/DELETE operations.
+ExecutionApiService
+
+Location: src/services/api/ExecutionApiService.ts
+Responsibility: Handles API communication for DUA generation runs, monitoring, and results.
+
+Pattern: Service Layer
+
+Encapsulates business-specific API operations.
+TemplateApiService
+
+Location: src/services/api/TemplateApiService.ts
+Responsibility: Retrieves and validates available DUA templates.
+
+Pattern: Service Layer
+
+AuthApiService
+
+Location: src/services/api/AuthApiService.ts
+Responsibility: Obtains authentication/session-related information from backend or platform endpoints.
+
+Pattern: Service Layer
+
+6. Asynchronous Operations
+Purpose
+
+Control polling, long-running operations, async status tracking, and retry logic.
+
+Project location
+src/async/
+src/monitoring/
+
+Classes
+AsyncTaskManager
+
+Location: src/async/AsyncTaskManager.ts
+Responsibility: Coordinates asynchronous frontend operations, including polling and promise lifecycle tracking.
+
+Pattern: Command
+
+Each async task can be represented as an executable action.
+PollingScheduler
+
+Location: src/monitoring/PollingScheduler.ts
+Responsibility: Repeatedly queries execution status until completion, failure, or cancellation.
+
+Pattern: Strategy
+
+Polling behavior may vary depending on interval, retry policy, or screen context.
+RetryPolicy
+
+Location: src/async/RetryPolicy.ts
+Responsibility: Defines retry rules for transient failures in status retrieval or API communication.
+
+Pattern: Strategy
+
+7. Session Invalidation
+Purpose
+
+Ensure secure logout and response to invalid or expired sessions.
+
+Project location
+src/security/session/
+
+Classes
+SessionInvalidationHandler
+
+Location: src/security/session/SessionInvalidationHandler.ts
+Responsibility: Reacts to expired sessions, revoked access, or unauthorized responses, forcing logout and UI cleanup.
+
+Pattern: Observer
+
+Listens for invalid session events and triggers coordinated actions.
+LogoutCommand
+
+Location: src/security/session/LogoutCommand.ts
+Responsibility: Encapsulates the logout process, including state cleanup and redirection.
+
+Pattern: Command
+
+Encapsulates the session termination action as a reusable operation.
+8. Scheduling by Events
+Purpose
+
+Coordinate frontend reactions to domain events such as processing completion, warning generation, or session timeout.
+
+Project location
+src/events/
+
+Classes
+EventBus
+
+Location: src/events/EventBus.ts
+Responsibility: Publishes and distributes application events across independent modules.
+
+Pattern: Observer / Publish-Subscribe
+
+Suitable for decoupled event-driven UI behavior.
+DomainEvent
+
+Location: src/events/DomainEvent.ts
+Responsibility: Base structure for typed frontend events.
+
+Pattern: Base class / event model
+
+ExecutionCompletedEvent
+
+Location: src/events/execution/ExecutionCompletedEvent.ts
+Responsibility: Represents the completion of a DUA generation run.
+
+Pattern: Event object
+
+WarningDetectedEvent
+
+Location: src/events/execution/WarningDetectedEvent.ts
+Responsibility: Represents that processing generated warnings requiring user attention.
+
+Pattern: Event object
+
+9. Creation of Objects
+Purpose
+
+Standardize creation of domain models and UI models from backend responses.
+
+Project location
+src/models/
+src/factories/
+
+Classes
+ExecutionFactory
+
+Location: src/factories/ExecutionFactory.ts
+Responsibility: Creates Execution objects from backend DTOs.
+
+Pattern: Factory Method
+
+Prevents raw API data from being spread across the UI.
+UserFactory
+
+Location: src/factories/UserFactory.ts
+Responsibility: Creates authenticated user objects from security claims.
+
+Pattern: Factory Method
+
+ResultFactory
+
+Location: src/factories/ResultFactory.ts
+Responsibility: Builds result models with confidence metadata and traceability information.
+
+Pattern: Factory Method
+
+src/
+├── security/
+│   ├── auth/
+│   │   └── AuthService.ts
+│   ├── session/
+│   │   ├── SessionManager.ts
+│   │   ├── SessionInvalidationHandler.ts
+│   │   └── LogoutCommand.ts
+│   └── authorization/
+│       ├── AuthorizationService.ts
+│       ├── RoleMapper.ts
+│       └── policies/
+│           └── PermissionPolicy.ts
+│
+├── notifications/
+│   ├── NotificationService.ts
+│   ├── NotificationFactory.ts
+│   └── models/
+│       └── NotificationMessage.ts
+│
+├── services/
+│   └── api/
+│       ├── ApiClient.ts
+│       ├── ExecutionApiService.ts
+│       ├── TemplateApiService.ts
+│       └── AuthApiService.ts
+│
+├── state/
+│   └── stores/
+│       ├── AppStateStore.ts
+│       ├── ExecutionStore.ts
+│       └── UserSessionStore.ts
+│
+├── async/
+│   ├── AsyncTaskManager.ts
+│   └── RetryPolicy.ts
+│
+├── monitoring/
+│   └── PollingScheduler.ts
+│
+├── events/
+│   ├── EventBus.ts
+│   ├── DomainEvent.ts
+│   └── execution/
+│       ├── ExecutionCompletedEvent.ts
+│       └── WarningDetectedEvent.ts
+│
+├── factories/
+│   ├── ExecutionFactory.ts
+│   ├── UserFactory.ts
+│   └── ResultFactory.ts
+│
+└── ui/
+    ├── refresh/
+    │   └── UIRefreshManager.ts
+    └── state/
+        └── ViewStateStore.ts
 ##1.7 a folder in /src 
 which contains the scaffold of the project, which is generated from the entire specification of points 1.1 to 1.6. 
-
-
-WEB facil acceso: React o Angular?mejor soporte pero no tan caro/robusto y con suficientes ingenieros que lo manejen...
 
 #Backend desing
 
