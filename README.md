@@ -322,7 +322,175 @@ A centralized internationalization layer integrated with the frontend using a de
 Responsive layout design implemented through MUI’s breakpoint system and flexible layout utilities. The design system will define consistent layout patterns that adapt to multiple screen sizes including desktops, tablets, and mobile devices. Responsive behavior will be handled at the component and theme level to ensure uniform behavior across the application.
 
 ##1.4 Security
-Technologies, techniques and classes with their respective location in the project structure responsible for authentication and authorization of permissions and sessions. 
+### Autenticación
+
+- Microsoft Entra ID
+- Autenticación del servicio de aplicaciones de Azure (autenticación fácil)
+- OpenID Connect / OAuth 2.0
+- MFA obligatorio
+- habilitado SSO
+
+### Recommended base option
+- Factor 1: Microsoft Entra corporate account
+- Factor 2: Microsoft Authenticator push notification
+- Authentication model: Federated authentication
+- Sign-in experience: Single Sign-On (SSO)
+- Security strengthening: Multi-Factor Authentication (MFA)
+- Identity Provider / Credential Server: Microsoft Entra ID
+- Authentication service integration: Azure App Service Authentication (Easy Auth)
+- Authentication session model: Managed by Microsoft Entra ID and Azure App Service Authentication
+- Application session/cache: Optional, using Azure Managed Redis only for transient non-authentication state
+
+### Cross-cutting security by layer
+
+### Frontend
+Responsible for:
+- initiating Microsoft login
+- using an already authenticated identity
+- hiding or displaying features based on claims/roles
+- visually signaling session expiration
+- not storing secrets
+### Technologies
+- React
+- TypeScript
+- Microsoft login via App Service Authentication
+- Route guards
+- RBAC-based UI guards
+
+### Backend
+Responsibilities:
+- validate incoming identities
+- validate roles and permissions
+- enforce policies
+- log audit information
+- control access to endpoints and resources
+### Technologies
+- Node.js
+- TypeScript
+- Azure App Service authentication headers / token context
+- Authorization middleware
+- RBAC + policies
+
+### Data
+Responsibilities:
+- protecting secrets
+- encrypting sensitive data
+- controlling access via managed identities
+- auditing access
+### Recommended technologies
+- Azure Key Vault for secrets, keys, and certificates
+- Managed Identity to allow App Service to access secrets without embedded credentials
+- encryption at rest and access control via Azure RBAC
+
+### Third parties
+Responsible for:
+- secure integration with third-party providers
+- storing credentials outside the code
+- using the principle of least privilege
+- logging calls and errors
+### Recommendation
+All third-party integrations must include:
+- secrets stored in Key Vault
+- access via Managed Identity where applicable
+- timeouts, controlled retries, and logging
+- separation of credentials by environment
+
+### Azure RBAC
+1. Admin: Full control over the system and operational settings.
+
+2. Support: Technical diagnostics, monitoring, and incident response, but without the ability to modify critical business data except in authorized cases.
+
+3. Customer Service: Case tracking, execution monitoring, and end-user support, with limited editing access.
+
+4. Customs Agent: Primary business user. Uploads documents, performs processing, reviews results, and obtains the generated DUA.}
+
+### Core permissions
+RUN_CREATE -> Create a new DUA generation run
+RUN_VIEW -> View an existing run
+RUN_CANCEL -> Cancel a running run
+RUN_RETRY -> Retry a failed run
+FOLDER_REGISTER -> Register or specify the location of source documents
+FOLDER_VALIDATE -> Verify that the source documents exist and are processable
+TEMPLATE_SELECT -> Select the official DUA template
+TEMPLATE_VIEW -> View available template versions
+DOCUMENT_UPLOAD -> Upload input documents to the system
+DOCUMENT_VIEW -> View documents associated with a run
+PROCESS_MONITOR -> Monitor processing progress
+WARNING_VIEW -> View detected warnings or inconsistencies
+RESULT_VIEW -> View the generated DUA
+RESULT_DOWNLOAD -> Download the generated file
+RESULT_REVIEW -> Mark the result as reviewed
+HISTORY_VIEW -> View execution history
+AUDIT_VIEW -> View logs or audit trails
+USER_VIEW -> View users
+USER_MANAGE -> Manage users and role assignments
+ROLE_MANAGE -> Create or modify internal roles
+SYSTEM_CONFIG -> Modify system parameters
+SUPPORT_CASE_VIEW -> View incidents or support cases
+SUPPORT_CASE_MANAGE -> Manage support cases
+Example by role
+Admin
+Todos los permisos.
+
+### Soporte técnico
+RUN_VIEW
+PROCESS_MONITOR
+WARNING_VIEW
+RESULT_VIEW
+HISTORY_VIEW
+AUDIT_VIEW
+SUPPORT_CASE_VIEW
+SUPPORT_CASE_MANAGE
+### Servicio al cliente
+RUN_VIEW
+PROCESS_MONITOR
+WARNING_VIEW
+VISUALIZAR_RESULTADO
+VISUALIZAR_HISTORIAL
+VISUALIZAR_CASO_DE_SOPORTE
+### Agente de aduanas
+CREAR_PROCESO
+VISUALIZAR_PROCESO
+REINTENTAR_PROCESO
+REGISTRAR_CARPETA
+VALIDAR_CARPETA
+SELECCIONAR_PLANTILLA
+VISUALIZAR_PLANTILLA
+DOCUMENT_UPLOAD
+DOCUMENT_VIEW
+PROCESS_MONITOR
+WARNING_VIEW
+RESULT_VIEW
+RESULT_DOWNLOAD
+RESULT_REVIEW
+HISTORY_VIEW
+
+### Possible ACLs
+via email: authorized corporate domains only
+via Entra group
+via IP range: restrict administrative access to the corporate network or VPN
+
+Service / Policy Module
+PolicyRegistry
+AuthorizationService
+Suggested Policies
+ExecutionOwnershipPolicy -> A user can only view/edit executions they created, except for support or admin
+ResultDownloadPolicy -> Only download results if the execution completed successfully
+TemplateVersionPolicy -> Only allow current templates
+SupportRestrictedAccessPolicy -> Support can view, but not modify, the final result
+CorporateNetworkPolicy -> Certain administrative operations are allowed only from permitted IP addresses or ranges
+BusinessHoursAdminPolicy -> Optional for critical actions during defined hours
+
+### Secure storage service: Azure Key Vault
+
+This should be your official service for:
+- sensitive environment variables
+- secrets
+- keys
+- certificates
+- third-party tokens
+
+
 
 ##1.5 Layered design
 design and explanation of the application’s various layers in the frontend. 
