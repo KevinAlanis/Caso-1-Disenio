@@ -32,5 +32,3 @@ This folder hosts the **DUA Streamliner** modular monolith backend (ASP.NET Core
 - [NotificationHubService (placeholder)](./src/Infrastructure/Notifications/NotificationHubService.cs)
 - [TelemetryService (placeholder)](./src/Infrastructure/Telemetry/TelemetryService.cs)
 - [PolicyRegistry](./src/Infrastructure/Security/PolicyRegistry.cs)
-
-If your repository root is above `duabusiness/`, prefix paths with `duabusiness/`, for example `duabusiness/src/Api/`.
