@@ -1,0 +1,474 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\tests\\IntegrationTests\\DUAStreamliner.IntegrationTests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Api\\DUAStreamliner.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Api\\DUAStreamliner.Api.csproj",
+        "projectName": "DUAStreamliner.Api",
+        "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Api\\DUAStreamliner.Api.csproj",
+        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Application\\DUAStreamliner.Application.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Application\\DUAStreamliner.Application.csproj"
+              },
+              "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Domain\\DUAStreamliner.Domain.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Domain\\DUAStreamliner.Domain.csproj"
+              },
+              "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Infrastructure\\DUAStreamliner.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Infrastructure\\DUAStreamliner.Infrastructure.csproj"
+              },
+              "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Shared\\DUAStreamliner.Shared.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Shared\\DUAStreamliner.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Application\\DUAStreamliner.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Application\\DUAStreamliner.Application.csproj",
+        "projectName": "DUAStreamliner.Application",
+        "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Application\\DUAStreamliner.Application.csproj",
+        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Domain\\DUAStreamliner.Domain.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Domain\\DUAStreamliner.Domain.csproj"
+              },
+              "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Shared\\DUAStreamliner.Shared.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Shared\\DUAStreamliner.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Domain\\DUAStreamliner.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Domain\\DUAStreamliner.Domain.csproj",
+        "projectName": "DUAStreamliner.Domain",
+        "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Domain\\DUAStreamliner.Domain.csproj",
+        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Infrastructure\\DUAStreamliner.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Infrastructure\\DUAStreamliner.Infrastructure.csproj",
+        "projectName": "DUAStreamliner.Infrastructure",
+        "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Infrastructure\\DUAStreamliner.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Application\\DUAStreamliner.Application.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Application\\DUAStreamliner.Application.csproj"
+              },
+              "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Domain\\DUAStreamliner.Domain.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Domain\\DUAStreamliner.Domain.csproj"
+              },
+              "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Shared\\DUAStreamliner.Shared.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Shared\\DUAStreamliner.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Shared\\DUAStreamliner.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Shared\\DUAStreamliner.Shared.csproj",
+        "projectName": "DUAStreamliner.Shared",
+        "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Shared\\DUAStreamliner.Shared.csproj",
+        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\tests\\IntegrationTests\\DUAStreamliner.IntegrationTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\tests\\IntegrationTests\\DUAStreamliner.IntegrationTests.csproj",
+        "projectName": "DUAStreamliner.IntegrationTests",
+        "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\tests\\IntegrationTests\\DUAStreamliner.IntegrationTests.csproj",
+        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\tests\\IntegrationTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Api\\DUAStreamliner.Api.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Api\\DUAStreamliner.Api.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
