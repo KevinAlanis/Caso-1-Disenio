@@ -255,6 +255,7 @@ The screen presents the generated document along with confidence indicators for 
 ![Flow 13 to 18](/media/Flow3.png)
 
 - Heatmaps Path 1
+  
 ![Heatmap1](/media/P1.1.jpg)
 ![Heatmap1.2](/media/P1.2.jpg)
 ![Heatmap1.3](/media/P1.3.jpg)
@@ -262,6 +263,7 @@ The screen presents the generated document along with confidence indicators for 
 ![Heatmap1.5](/media/P1.5.jpg)
 
 - Heatmaps Path 2
+  
 ![Heatmap2](/media/P2.1.jpg)
 ![Heatmap2.2](/media/P2.2.jpg)
 ![Heatmap2.3](/media/P2.3.jpg)
@@ -275,6 +277,7 @@ The screen presents the generated document along with confidence indicators for 
 ![Heatmap2.11](/media/P2.11.jpg)
 
 - Heatmaps Path 3
+  
 ![Heatmap3](/media/P3.1.jpg)
 ![Heatmap3.2](/media/P3.2.jpg)
 ![Heatmap3.3](/media/P3.3.jpg)
@@ -288,6 +291,7 @@ The screen presents the generated document along with confidence indicators for 
 ![Heatmap3.11](/media/P3.11.jpg)
 
 - Heatmaps Path 4
+  
 ![Heatmap4](/media/P4.1.jpg)
 ![Heatmap4.2](/media/P4.2.jpg)
 ![Heatmap4.3](/media/P4.3.jpg)
