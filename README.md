@@ -905,4 +905,17 @@ src/
 ```
 # Backend desing
 
+## Technology stack
+## Security
+## Observability
+## Infraestructure (devops)
+## Availability
+## Scalability
+## Backend key workflows
+### Upload files to generate dua
+### Setup dua template
+## Architecture diagrams in layers
+## Design Considerations
+## Source Code
+
 #Data design
