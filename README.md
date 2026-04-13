@@ -325,7 +325,7 @@ A centralized internationalization layer integrated with the frontend using a de
 - Responsiveness by:
 Responsive layout design implemented through MUI’s breakpoint system and flexible layout utilities. The design system will define consistent layout patterns that adapt to multiple screen sizes including desktops, tablets, and mobile devices. Responsive behavior will be handled at the component and theme level to ensure uniform behavior across the application.
 
-##1.4 Security
+## 1.4 Security
 ### Autenticación
 
 - Microsoft Entra ID
