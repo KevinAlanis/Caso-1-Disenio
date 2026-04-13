@@ -903,35 +903,6 @@ src/
     └── state/
         └── ViewStateStore.ts
 ```
-        
-## 1.7 a folder in /src 
-### Scaffold Folder
-
-```bash
-src/
-│
-├── scaffold/                   # Base scaffold generated from design specifications
-│
-│   ├── app/                   # Application bootstrap and configuration
-│   ├── features/              # Domain-based modules (DUA generation, monitoring, etc.)
-│   ├── pages/                 # Page-level compositions
-│   ├── components/            # Reusable UI components (MUI-based)
-│   ├── services/              # API communication layer
-│   ├── security/              # Authentication, authorization, and guards
-│   ├── state/                 # Global and feature state management
-│   ├── notifications/         # Notification and alert system
-│   ├── async/                 # Async task handling and retry strategies
-│   ├── monitoring/            # Process monitoring and polling
-│   ├── events/                # Event-driven communication layer
-│   ├── factories/             # Object creation logic (Factory pattern)
-│   ├── hooks/                 # Custom reusable hooks
-│   ├── models/                # TypeScript models and DTOs
-│   ├── utils/                 # Helper and utility functions
-│   ├── i18n/                  # Internationalization resources
-│   ├── styles/                # Theming and styling (MUI theme)
-│   └── assets/                # Static resources (images, icons)
-``` 
-
-#Backend desing
+# Backend desing
 
 #Data design
