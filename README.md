@@ -1231,4 +1231,27 @@ The backend will be implemented as a modular monolith within the shared monorepo
 
 ## Source Code
 
+## Source Code
+
+The backend source code skeleton was generated as a structural baseline for the proposed modular monolith architecture with Cursor AI.  
+It includes folder organization, project boundaries, controllers, application services, domain entities, repository contracts, infrastructure adapters, security placeholders, and async processing abstractions, without implementing functional business logic.
+
+### Backend structure
+- [Backend root](./duabusiness/)
+- [Backend README](./duabusiness/README.md)
+- [Solution](./duabusiness/DUAStreamliner.sln)
+
+### Main layers
+- [API layer](./duabusiness/src/Api/)
+- [Application layer](./duabusiness/src/Application/)
+- [Domain layer](./duabusiness/src/Domain/)
+- [Infrastructure layer](./duabusiness/src/Infrastructure/)
+- [Shared layer](./duabusiness/src/Shared/)
+
+### Key classes
+- [ExecutionsController](./duabusiness/src/Api/Controllers/ExecutionsController.cs)
+- [ExecutionAppService](./duabusiness/src/Application/Executions/ExecutionAppService.cs)
+- [Execution entity](./duabusiness/src/Domain/Executions/Execution.cs)
+- [IExecutionRepository](./duabusiness/src/Application/Executions/IExecutionRepository.cs)
+
 #Data design
