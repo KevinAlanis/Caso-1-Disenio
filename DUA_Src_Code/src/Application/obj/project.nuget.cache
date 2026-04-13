@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "BJp+EvO1yCQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kevin\\OneDrive - Estudiantes ITCR\\Documentos\\Cursor\\duabusiness\\src\\Application\\DUAStreamliner.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kevin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
