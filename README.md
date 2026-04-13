@@ -490,7 +490,7 @@ This should be your official service for:
 - certificates
 - third-party tokens
  
-##1.5 Layered design
+## 1.5 Layered design
 ```bash
 src/
 │
