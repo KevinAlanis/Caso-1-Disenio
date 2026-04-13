@@ -33,6 +33,4 @@ This folder hosts the **DUA Streamliner** modular monolith backend (ASP.NET Core
 - [TelemetryService (placeholder)](./src/Infrastructure/Telemetry/TelemetryService.cs)
 - [PolicyRegistry](./src/Infrastructure/Security/PolicyRegistry.cs)
 
-## Linking from a monorepo root `README.md`
-
 If your repository root is above `duabusiness/`, prefix paths with `duabusiness/`, for example `duabusiness/src/Api/`.
