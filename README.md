@@ -1237,21 +1237,21 @@ The backend source code skeleton was generated as a structural baseline for the 
 It includes folder organization, project boundaries, controllers, application services, domain entities, repository contracts, infrastructure adapters, security placeholders, and async processing abstractions, without implementing functional business logic.
 
 ### Backend structure
-- [Backend root](./duabusiness/)
-- [Backend README](./duabusiness/README.md)
-- [Solution](./duabusiness/DUAStreamliner.sln)
+- [Backend root](./DUA_Src_Code/)
+- [Backend README](./DUA_Src_Code/README.md)
+- [Solution](./DUA_Src_Code/DUAStreamliner.sln)
 
 ### Main layers
-- [API layer](./duabusiness/src/Api/)
-- [Application layer](./duabusiness/src/Application/)
-- [Domain layer](./duabusiness/src/Domain/)
-- [Infrastructure layer](./duabusiness/src/Infrastructure/)
-- [Shared layer](./duabusiness/src/Shared/)
+- [API layer](./DUA_Src_Code/src/Api/)
+- [Application layer](./DUA_Src_Code/src/Application/)
+- [Domain layer](./DUA_Src_Code/src/Domain/)
+- [Infrastructure layer](./DUA_Src_Code/src/Infrastructure/)
+- [Shared layer](./DUA_Src_Code/src/Shared/)
 
 ### Key classes
-- [ExecutionsController](./duabusiness/src/Api/Controllers/ExecutionsController.cs)
-- [ExecutionAppService](./duabusiness/src/Application/Executions/ExecutionAppService.cs)
-- [Execution entity](./duabusiness/src/Domain/Executions/Execution.cs)
-- [IExecutionRepository](./duabusiness/src/Application/Executions/IExecutionRepository.cs)
+- [ExecutionsController](./DUA_Src_Code/src/Api/Controllers/ExecutionsController.cs)
+- [ExecutionAppService](./DUA_Src_Code/src/Application/Executions/ExecutionAppService.cs)
+- [Execution entity](./DUA_Src_Code/src/Domain/Executions/Execution.cs)
+- [IExecutionRepository](./DUA_Src_Code/src/Application/Executions/IExecutionRepository.cs)
 
 #Data design
