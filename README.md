@@ -1070,108 +1070,164 @@ The backend will be implemented as a modular monolith within the shared monorepo
 
 ## Backend key workflows
 
-A. Upload files to generate DUA
-
-a. The client sends a request to create a new DUA execution.
-
-b. The backend validates the authenticated user and permissions.
-
-c. The backend creates an execution record with status Draft or PendingUpload.
-
-d. The backend receives the list of files to be uploaded.
-
-e. The backend opens a streaming transfer to receive each file in raw binary format.
-
-f. Each file is validated by size, extension, MIME type, and malware/security rules.
-
-g. Valid files are stored in Azure Blob Storage.
-
-h. The backend registers file metadata in the database, including execution ID, original name, content type, blob URI reference, checksum, upload timestamp, and uploader identity.
-
-i. The backend updates the execution with the uploaded document count.
-
-j. If at least one required file is missing or invalid, the backend registers validation warnings or errors.
-
-k. The backend returns the updated execution state and the list of accepted/rejected files.
-
-
-B. Setup DUA template
-
-a. The client requests the list of supported DUA templates.
-
-b. The backend retrieves active template versions from the database or configuration source.
-
-c. The backend returns only templates allowed by current business rules and user permissions.
-
-d. The user selects one template for the current execution.
-
-e. The backend validates that the selected template is current, active, and compatible with the execution type.
-
-f. The backend associates the template with the execution record.
-
-g. If the selected template is invalid or obsolete, the backend rejects the operation and logs the cause.
-
-h. The backend confirms the selected template and marks the execution as ready for pre-processing validation.
-
-C. Start processing execution
-
-a. The client sends a request to start processing.
-
-b. The backend validates that the execution has valid files, a valid template, and all mandatory parameters.
-
-c. The backend changes the execution status to Validating.
-
-d. The backend performs pre-processing validation rules.
-
-e. If validation fails, the status becomes FailedValidation and the issues are stored.
-
-f. If validation succeeds, the backend changes the status to Queued.
-
-g. The backend publishes a processing job to the asynchronous processing component.
-
-h. The worker starts the document analysis pipeline.
-
-i. The backend records stage changes for monitoring and auditability.
-
-D. Monitor processing
-
-a. The client requests execution status or receives a notification update.
-
-b. The backend returns the current execution state, current stage, percentage, warnings, and timestamps.
-
-c. As the worker advances, it persists stage progress events.
-
-d. If ambiguities or inconsistencies are detected, warning entries are created.
-
-e. If a critical processing error occurs, the execution status changes to Failed.
-
-f. If processing finishes correctly, the status changes to Completed.
-
-E. Retrieve result
-
-a. The client requests the generated result for a completed execution.
-
-b. The backend verifies RESULT_VIEW permission and execution ownership policy.
-
-c. The backend retrieves result metadata, confidence indicators, traceability data, and downloadable artifact references.
-
-d. The backend returns the result summary for on-screen review.
-
-e. If the user downloads the result, the backend verifies RESULT_DOWNLOAD policy.
-
-f. The download action is registered in the audit trail.
-
 ### Upload files to generate dua
 
+- A. Upload files to generate DUA
+
+  - a. The client sends a request to create a new DUA execution.
+  - b. The backend validates the authenticated user and permissions.
+  - c. The backend creates an execution record with status Draft or PendingUpload.
+  - d. The backend receives the list of files to be uploaded.
+  - e. The backend opens a streaming transfer to receive each file in raw binary format.
+  - f. Each file is validated by size, extension, MIME type, and malware/security rules.
+  - g. Valid files are stored in Azure Blob Storage.
+  - h. The backend registers file metadata in the database, including execution ID, original name, content type, blob URI reference, checksum, upload timestamp, and uploader identity.
+  - i. The backend updates the execution with the uploaded document count.
+  - j. If at least one required file is missing or invalid, the backend registers validation warnings or errors.
+  - k. The backend returns the updated execution state and the list of accepted/rejected files.
 
 ### Setup dua template
 
+- B. Setup DUA template
+
+  - a. The client requests the list of supported DUA templates.
+  - b. The backend retrieves active template versions from the database or configuration source.
+  - c. The backend returns only templates allowed by current business rules and user permissions.
+  - d. The user selects one template for the current execution.
+  - e. The backend validates that the selected template is current, active, and compatible with the execution type.
+  - f. The backend associates the template with the execution record.
+  - g. If the selected template is invalid or obsolete, the backend rejects the operation and logs the cause.
+  - h. The backend confirms the selected template and marks the execution as ready for pre-processing validation.
+
+- C. Start processing execution
+
+  - a. The client sends a request to start processing.
+  - b. The backend validates that the execution has valid files, a valid template, and all mandatory parameters.
+  - c. The backend changes the execution status to Validating.
+  - d. The backend performs pre-processing validation rules.
+  - e. If validation fails, the status becomes FailedValidation and the issues are stored.
+  - f. If validation succeeds, the backend changes the status to Queued.
+  - g. The backend publishes a processing job to the asynchronous processing component.
+  - h. The worker starts the document analysis pipeline.
+  - i. The backend records stage changes for monitoring and auditability.
+
+- D. Monitor processing
+
+  - a. The client requests execution status or receives a notification update.
+  - b. The backend returns the current execution state, current stage, percentage, warnings, and timestamps.
+  - c. As the worker advances, it persists stage progress events.
+  - d. If ambiguities or inconsistencies are detected, warning entries are created.
+  - e. If a critical processing error occurs, the execution status changes to Failed.
+  - f. If processing finishes correctly, the status changes to Completed.
+
+- E. Retrieve result
+
+  - a. The client requests the generated result for a completed execution.
+  - b. The backend verifies RESULT_VIEW permission and execution ownership policy.
+  - c. The backend retrieves result metadata, confidence indicators, traceability data, and downloadable artifact references.
+  - d. The backend returns the result summary for on-screen review.
+  - e. If the user downloads the result, the backend verifies RESULT_DOWNLOAD policy.
+  - f. The download action is registered in the audit trail.
 
 ## Architecture diagrams in layers
 
+### Context diagram
+
+- Actors:
+
+  - Customs Agent
+  - Support User
+  - Customer Service User
+  - Admin
+    
+- External systems:
+  - Microsoft Entra ID
+  - Azure Notification Hubs
+  - Azure Blob Storage
+  - Azure SQL Database
+    
+- Central System:
+  - DUA Streamliner
+
+###  Container diagram
+
+- Containers:
+  - eact Frontend SPA
+  - Azure API Management
+  - ASP.NET Core Backend API
+  - Background Processing Module / Worker
+  - Azure SQL Database
+  - Azure Blob Storage
+  - Azure Notification Hubs
+  - Application Insights / Azure Monitor
+  - Microsoft Entra ID
+
+### Code diagram
+
+- Layers:
+  - Presentation
+  - Application
+  - Domain
+  - Infrastructure
+    
+- Candidate classes:
+  - ExecutionController
+  - TemplateController
+  - ResultController
+  - ExecutionApplicationService
+  - DocumentUploadService
+  - TemplateService
+  - ProcessingOrchestrator
+  - NotificationService
+  - Execution
+  - Document
+  - DuaTemplate
+  - ExecutionResult
+  - IExecutionRepository
+  - IDocumentRepository
+  - BlobStorageService
+  - SqlExecutionRepository
 
 ## Design Considerations
 
+### System configurations, parameters, and policies
+
+- All system parameters must be stored as versioned source-controlled configuration.
+- Environment-specific values must be externalized through Azure App Service configuration and Key Vault references.
+- Authorization policies must be explicitly defined in backend code and documented with their business purpose.
+- Supported file types, max sizes, retention periods, retry counts, timeout values, and allowed template versions must be centrally configured.
+
+### Resource allocations
+
+- App Service plan sizing must be documented for each environment.
+- Database tier, storage quota, and backup policy must be documented.
+- Blob Storage redundancy and lifecycle rules must be documented.
+- Since no dedicated load balancer is required, horizontal recovery depends on App Service platform capabilities and deployment slot strategy.
+
+### Algorithms and parameters
+
+- File validation rules: extension, MIME type, checksum, max size
+- Processing confidence scoring thresholds: High / Medium / Low
+- Retry strategy: exponential backoff with capped retries
+- Duplicate upload detection using checksum
+- Template compatibility validation rules by version and execution type
+
+### Agent prototypes
+
+- Document Intake Agent prototype
+- Template Validation Agent prototype
+- Extraction Orchestrator Agent prototype
+- Confidence Evaluation Agent prototype
+- Notification Dispatch Agent prototype
+
+### Interfaces, proxies, integration points
+
+- Frontend ↔ Backend API via HTTPS/JSON REST
+- Backend ↔ Entra ID via App Service Authentication context
+- Backend ↔ Azure Blob Storage via SDK and Managed Identity
+- Backend ↔ Azure SQL via secure connection string / managed auth if enabled
+- Backend ↔ Notification Hubs via Azure SDK
+- Backend ↔ Azure Monitor / Application Insights telemetry pipeline
 
 ## Source Code
 
