@@ -906,10 +906,135 @@ src/
 # Backend desing
 
 ## Technology stack
+
+- API style: REST API
+- Transport: HTTPS over TLS 1.2+
+- API contract standard: OpenAPI 3.1
+- API gateway: Azure API Management
+- Hosting: Azure App Service
+- Backend language: C#
+- Framework: ASP.NET Core 8 Web API
+- Repository model: Monorepo compartido con frontend
+- Backend folder: duabusiness/
+- Architecture style: Modular monolith
+- Asynchronous operations: cola de trabajos + procesamiento desacoplado
+- Notifications: Azure Notification Hubs para notificaciones hacia cliente
+- No load balancer required: se mantiene así en el diseño base
+- Storage complementario recomendado: Azure Blob Storage
+- Database complementaria recomendada: Azure SQL Database
+
+The backend will be implemented as a modular monolith within the shared monorepo, under the duabusiness/ folder. The system will expose a REST API over HTTPS, documented with OpenAPI 3.1, fronted by Azure API Management, and hosted on Azure App Service using ASP.NET Core 8 Web API. Asynchronous processing will be handled through internal background processing components and cloud messaging support, while user-facing notifications will use Azure Notification Hubs. This approach keeps operational complexity low while preserving clear module boundaries and future evolution paths.
+
 ## Security
+
+- Authentication: Microsoft Entra ID
+- Authentication integration: Azure App Service Authentication (Easy Auth)
+- Authorization: RBAC + policy-based authorization
+- Transport security: HTTPS mandatory, TLS 1.2+
+- Secrets management: Azure Key Vault
+- Managed access to secrets: Managed Identity
+- Database encryption: AES-256 at rest
+- Encryption in transit: TLS 1.2+ for API and DB connections
+- Payload size limit (general): 25 MB default
+- Payload exceptions: file upload endpoints up to 100 MB per request
+- Rate limiting: via Azure API Management
+- 100 requests/min per authenticated user for standard endpoints
+- 10 concurrent upload/process initiation requests per user
+- Administrative access controls: restricted by Entra group and optional corporate IP/VPN policy
+- Retention in production: 90 days active data
+- Archive policy: move completed execution metadata and output references to archive after 90 days
+- Audit log retention: 1 year minimum
+
 ## Observability
+
+### Platform
+
+- Central observability platform: Azure Monitor
+- Application telemetry: implementation perspectives
+- Centralized records: Log Analytics workspace
+- Dashboards: Azure Dashboards / Azure Monitor Workbooks
+  
+### Events that go to a registrar
+
+### Security
+
+- Login succeeded
+- Login failed
+- Access denied by role/policy
+- Session expired
+- Sensitive administrator action executed
+  
+### Business
+
+- DUA execution created
+- DUA execution started
+- Documents upload started
+- Document uploaded
+- Document validation failed
+- Template selected
+- Template validation failed
+- Processing stage changed
+- Warning detected
+- Execution completed
+- Execution failed
+- Execution retried
+- Result reviewed
+- Result downloaded
+- Execution archivedDUA execution created
+- DUA execution started
+- Documents upload started
+- Document uploaded
+- Document validation failed
+- Template selected
+- Template validation failed
+- Processing stage changed
+- Warning detected
+- Execution completed
+- Execution failed
+- Execution retried
+- Result reviewed
+- Result downloaded
+- Execution archived
+
+### Technicians
+
+- API request received
+- API request failed
+- Dependency call failed
+- Blob storage upload failed
+- Database timeout
+- Notification dispatch failed
+- Background job retry triggered
+- Health check failed
+
+### Minimum metrics
+
+- API latency p50 / p95 / p99
+- Error rate by endpoint
+- Upload success rate
+- Average processing time per execution
+- Execution failure rate
+- Queue/backlog length
+- CPU / memory usage
+- Notification delivery failures
+
 ## Infraestructure (devops)
+
+- Source control: Azure DevOps Repos
+- CI/CD automation: Azure Pipelines
+- Deployment promotion: Azure DevOps Environments
+- Infrastructure as Code: Bicep
+- Deployment target for dev/stage/prod: Azure App Service
+- Environment strategy:
+  - Dev → Azure App Service (development slot/environment)
+  - Stage → Azure App Service (staging slot/environment)
+  - QA → Azure App Service (qa environment)
+  - Prod → Azure App Service (production environment)
+
 ## Availability
+
+
+
 ## Scalability
 ## Backend key workflows
 ### Upload files to generate dua
