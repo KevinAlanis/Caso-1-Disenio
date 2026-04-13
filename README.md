@@ -1033,14 +1033,110 @@ The backend will be implemented as a modular monolith within the shared monorepo
 
 ## Availability
 
+- Availability target: 99.99%
+- Maximum annual downtime: 0.876 hours/year
+- Equivalent downtime: 52.56 minutes/year
+- 
+### Recovery measures
 
+- Stateless API instances on Azure App Service
+- Azure SQL with automatic backups and point-in-time restore
+- Blob Storage redundancy
+- Retry with exponential backoff for transient failures
+- Health checks and automatic restart on unhealthy instances
+- Queue-based async processing to absorb transient outages
+- Graceful degradation: if notifications fail, processing result remains queryable by polling
 
 ## Scalability
+
+### Elements growing with traffic
+
+- Azure API Management throughput
+- Azure App Service instances
+- Background processing workers
+- Azure Blob Storage transactions and capacity
+- Database DTUs/vCores, storage and connection load
+- Notification throughput
+- Log volume and telemetry ingestion
+- Queue/backlog depth for async processing
+
+### Expectable bottlenecks
+
+- Uploading files
+- Asynchronous document processing
+- Database scripts
+- Issuance of notifications
+- Excessive telemetry if instrumentation is poor
+
 ## Backend key workflows
+
+A. Upload files to generate DUA
+
+a. The client sends a request to create a new DUA execution.
+b. The backend validates the authenticated user and permissions.
+c. The backend creates an execution record with status Draft or PendingUpload.
+d. The backend receives the list of files to be uploaded.
+e. The backend opens a streaming transfer to receive each file in raw binary format.
+f. Each file is validated by size, extension, MIME type, and malware/security rules.
+g. Valid files are stored in Azure Blob Storage.
+h. The backend registers file metadata in the database, including execution ID, original name, content type, blob URI reference, checksum, upload timestamp, and uploader identity.
+i. The backend updates the execution with the uploaded document count.
+j. If at least one required file is missing or invalid, the backend registers validation warnings or errors.
+k. The backend returns the updated execution state and the list of accepted/rejected files.
+
+B. Setup DUA template
+
+a. The client requests the list of supported DUA templates.
+b. The backend retrieves active template versions from the database or configuration source.
+c. The backend returns only templates allowed by current business rules and user permissions.
+d. The user selects one template for the current execution.
+e. The backend validates that the selected template is current, active, and compatible with the execution type.
+f. The backend associates the template with the execution record.
+g. If the selected template is invalid or obsolete, the backend rejects the operation and logs the cause.
+h. The backend confirms the selected template and marks the execution as ready for pre-processing validation.
+
+C. Start processing execution
+
+a. The client sends a request to start processing.
+b. The backend validates that the execution has valid files, a valid template, and all mandatory parameters.
+c. The backend changes the execution status to Validating.
+d. The backend performs pre-processing validation rules.
+e. If validation fails, the status becomes FailedValidation and the issues are stored.
+f. If validation succeeds, the backend changes the status to Queued.
+g. The backend publishes a processing job to the asynchronous processing component.
+h. The worker starts the document analysis pipeline.
+i. The backend records stage changes for monitoring and auditability.
+
+D. Monitor processing
+
+a. The client requests execution status or receives a notification update.
+b. The backend returns the current execution state, current stage, percentage, warnings, and timestamps.
+c. As the worker advances, it persists stage progress events.
+d. If ambiguities or inconsistencies are detected, warning entries are created.
+e. If a critical processing error occurs, the execution status changes to Failed.
+f. If processing finishes correctly, the status changes to Completed.
+
+E. Retrieve result
+
+a. The client requests the generated result for a completed execution.
+b. The backend verifies RESULT_VIEW permission and execution ownership policy.
+c. The backend retrieves result metadata, confidence indicators, traceability data, and downloadable artifact references.
+d. The backend returns the result summary for on-screen review.
+e. If the user downloads the result, the backend verifies RESULT_DOWNLOAD policy.
+f. The download action is registered in the audit trail.
+
 ### Upload files to generate dua
+
+
 ### Setup dua template
+
+
 ## Architecture diagrams in layers
+
+
 ## Design Considerations
+
+
 ## Source Code
 
 #Data design
